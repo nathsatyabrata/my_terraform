@@ -1,0 +1,12 @@
+/*
+-> Drift Detection
+-> There is junior, Suppose you have a S3 bucket and he faced some issues with polycy management. Then he changed something manualy in aws console. But then terraform state file doesnt know there are some changes manualy done in console. 
+
+-> First answer is (terraform referesh) which will alow the terraform to refresh the state file. But here you need to setup a cron job to run terraform refresh command so you can refresh the statefile
+
+-> But first answer is not recomended by terraform because any one will change manualy to fix one issue but it will generate other issue in automation part.
+
+-> Second answer is configure strict IAM policy. But sometime this is also not possible.
+
+3-> You can perform some Audit Logs (cloud watch or any other audit tool), where you can setup a lamda function that if someone make some manual change in the console which resources are made by terraform. Then this lamda function will go to the audit log and identify the that this changes are made by a particular IAM user. Then it will send the notification to the team members.
+*/
